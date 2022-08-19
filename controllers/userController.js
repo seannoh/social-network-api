@@ -2,7 +2,7 @@ const {User, Thought} = require("../models");
 
 module.exports = {
     // get all users
-    getUser(req, res) {
+    getUsers(req, res) {
         User.find()
         .then(users => res.json(users))
         .catch(err => res.status(500).json(err));
