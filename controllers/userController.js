@@ -23,13 +23,16 @@ module.exports = {
     createUser(req, res) {
         User.create(req.body)
         .then(user => res.json(user))
-        .catch(err => res.status(500).json(err));
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err)
+        });
     },
 
     // update a user
     updateUser(req, res) {
         User.findOneAndUpdate(
-            {_id: userId},
+            {_id: req.params.userId},
             {$set: req.body},
             {
                 runValidators: true,

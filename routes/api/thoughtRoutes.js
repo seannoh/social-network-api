@@ -14,6 +14,6 @@ router.route("/:thoughtId/reactions")
     .post(controller.createReaction);
 
 router.route("/:thoughtId/reactions/:reactionId")
-    .post(controller.deleteReaction);
+    .delete(controller.deleteReaction);
 
 module.exports = router;

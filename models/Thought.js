@@ -20,6 +20,13 @@ const reactionSchema = new Schema(
             default: Date.now(),
             get: (timestamp) => {return timestamp.toLocaleString();}
         }
+    },
+    {
+        toJSON: {
+            virtuals: true,
+            getters: true
+        },
+        _id: false,
     }
 );
 
@@ -41,6 +48,13 @@ const thoughtSchema = new Schema(
             required: true
         },
         reactions: [reactionSchema]   
+    },
+    {
+        toJSON: {
+            virtuals: true,
+            getters: true
+        },
+        id: false,
     }
 );
 
